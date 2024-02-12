@@ -90,9 +90,9 @@
         </div>
     </div>
 </div>
-@include('new_teacher')
+@include('teachers.new_teacher')
 @foreach($teachers as $teacher)
-    @include('edit_teacher')
+    @include('teachers.edit_teacher')
     @include('uploadAvatar')
 @endforeach
 <script>

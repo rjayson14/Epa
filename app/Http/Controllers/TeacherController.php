@@ -15,7 +15,7 @@ class TeacherController extends Controller
     {
         $teachers = User::where('role','Teacher')->get();
         
-        return view('teachers',
+        return view('teachers.teachers',
         array(
             'teachers' => $teachers,
         )
