@@ -10,7 +10,7 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
-  <link rel="shortcut icon" href="{{asset('images/logo.png')}}">
+  <link rel="shortcut icon" href="{{asset('images/epa2.png')}}">
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('vendors/feather/feather.css')}}">
   <link rel="stylesheet" href="{{asset('vendors/ti-icons/css/themify-icons.css')}}">
@@ -33,9 +33,7 @@
  <!-- Custom style CSS -->
   <style type="text/css">
     body {
-
-
-            background: url("{{ asset('images/w-background.jpg')}}") no-repeat fixed center;
+            background: url("{{ asset('images/assd.jpg')}}") no-repeat fixed center;
         }
     .dataTables_paginate
     {
@@ -83,9 +81,7 @@
                 max-width:1700px;
             }
         }
-        body {
-            background: url("{{ asset('images/w-background.jpg')}}") no-repeat fixed center;
-        }
+        
 </style>
 
   
@@ -128,7 +124,7 @@
             </div>
           </div>
         </nav>
-        <nav class="bottom-navbar">
+        <nav class="bottom-navbar"style='background-color:white !important;' >
           <div class="container">
             @if(auth()->user()->role == "Administrator")
             <ul class="nav page-navigation">

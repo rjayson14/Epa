@@ -13482,6 +13482,7 @@ input[type="button"].btn-block {
 
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
   color: rgba(0, 0, 0, 0.9);
+  background-color: green;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -24996,7 +24997,7 @@ body.avgrund-active {
 }
 
 .context-menu-list .context-menu-item span {
-  color: #000;
+  color: green;
   font-size: .75rem;
   font-weight: 600;
 }
@@ -27810,7 +27811,7 @@ div.tagsinput span.tag a {
 .horizontal-menu .bottom-navbar .page-navigation > .nav-item.active > .nav-link .menu-title,
 .horizontal-menu .bottom-navbar .page-navigation > .nav-item.active > .nav-link i,
 .horizontal-menu .bottom-navbar .page-navigation > .nav-item.active > .nav-link .menu-arrow {
-  color: #248afd;
+  color: green;
 }
 
 .horizontal-menu .bottom-navbar .page-navigation > .nav-item .submenu {

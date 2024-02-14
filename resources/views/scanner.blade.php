@@ -131,7 +131,7 @@ Gate Scanner
     top: 50%;
     left: 50%;
     /* transform: translateX(-50%) translateY(-50%); */
-    color: red;
+    color: black;
     font-size: 60px;
     font-family: Arial, Helvetica, sans-serif;
 
@@ -141,11 +141,11 @@ Gate Scanner
 @stop
 
 @section('content')
-<nav class="navbar navbar-light bg-light text-left " style='display:block !important;'>
+<nav class="navbar navbar-light bg-light text-left " style='display:block  !important;'>
     <a class="navbar-brand" href="{{url('/gates')}}">Gates</a>
     <a class="navbar-brand" href="{{url('/classrooms')}}">Classrooms</a>
+    
   </nav>
- 
     <div class='row pt-3'>
         <div class="col-md-12 text-center">
             <h1><span>{{$gate->name}}</h1><h3></span> {{date('F d, Y - l')}}</h3>
