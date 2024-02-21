@@ -148,11 +148,11 @@
                 margin-bottom: 0;
                 padding: 0.687rem 1.562rem;
                 &:hover {
-                  background: #1e1e2f;
+                  background: #3636df;
                 }
 
                 i {
-                  font-size: 17px;
+                  font-size: 30px;
                 }
 
                 .badge {
@@ -280,6 +280,7 @@
           @include transition-property(background, box-shadow);
           @include media-breakpoint-down(md) {
               border: none;
+              
           }
 
           > .nav-item {
@@ -318,6 +319,8 @@
                   .menu-title {
                       font-size: $horizontal-bottom-menu-item-font-size;
                       font-weight: 300;
+                      
+                      
                   }
                   .menu-icon {
                       margin-right: 10px;
