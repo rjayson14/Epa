@@ -50,7 +50,7 @@
             }
         }
         body {
-            background: url("{{ asset('images/Background1.jpg')}}") no-repeat fixed center;
+            background: url("{{ asset('images/Background2.jpg')}}") no-repeat fixed center;
         }
         
     </style>

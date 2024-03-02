@@ -37,8 +37,8 @@
             html, body {
                 
                 background: #79ec75;
-                color: black !important;
-                font-weight: 100;
+                color: blue !important;
+                font-weight: 350;
                 height: 100vh;
                 margin: 0;
             }
@@ -57,7 +57,8 @@
                 position: relative;
             }
             .table-bordered {
-                    border:2px solid #000000 !important;
+                    border:4px solid green !important;
+                    background:#e6f9e5;
                 }
             .top-right {
                 position: absolute;
@@ -87,7 +88,7 @@
                 margin-bottom: 30px;
             }
             body {
-            background: url("{{ asset('images/background1.jpg')}}") no-repeat fixed center;
+            background: url("{{ asset('images/Background2.jpg')}}") no-repeat fixed center;
         }
         </style>
 	@yield('style')
