@@ -35,7 +35,8 @@
 }
 
             html, body {
-                /* background-color: black; */
+                
+                background: #79ec75;
                 color: black !important;
                 font-weight: 100;
                 height: 100vh;
@@ -56,7 +57,7 @@
                 position: relative;
             }
             .table-bordered {
-                    border:1px solid #000000 !important;
+                    border:2px solid #000000 !important;
                 }
             .top-right {
                 position: absolute;
@@ -69,7 +70,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 847px;
             }
 
             .links > a {
@@ -86,7 +87,7 @@
                 margin-bottom: 30px;
             }
             body {
-            background: url("{{ asset('images/header.png')}}") no-repeat fixed center;
+            background: url("{{ asset('images/background1.jpg')}}") no-repeat fixed center;
         }
         </style>
 	@yield('style')

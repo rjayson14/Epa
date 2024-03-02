@@ -124,7 +124,7 @@
             </div>
           </div>
         </nav>
-        <nav class="bottom-navbar"style='background-color:white !important;' >
+        <nav class="bottom-navbar"style='background-color:#2cf66f !important;' >
           <div class="container">
             @if(auth()->user()->role == "Administrator")
             <ul class="nav page-navigation">
@@ -226,7 +226,7 @@
         </nav>
       </div>
       <div class="container-fluid page-body-wrapper">
-        <div class="main-panel">
+        <div class="main-panel" >
       <!-- Main Content -->
           @yield('content')
           {{-- <footer class="footer">
