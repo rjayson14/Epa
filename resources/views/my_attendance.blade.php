@@ -68,6 +68,7 @@
                                     <th>Classroom</th>
                                     <th>Date</th>
                                     <th>Time</th>
+                                    <th>Course</th>
       
                                 </tr>
                             </thead>
@@ -78,6 +79,7 @@
                                     <td>{{$attendance->classroom->name}}</td>
                                     <td>{{date('h:i a',strtotime($attendance->time))}}</td>
                                     <td>{{$attendance->type}}</td>
+                                    <td>{{$attendance->Course}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

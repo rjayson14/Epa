@@ -36,8 +36,8 @@
 
             html, body {
                 
-                background: #79ec75;
-                color: blue !important;
+                
+                color: green !important;
                 font-weight: 350;
                 height: 100vh;
                 margin: 0;

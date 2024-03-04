@@ -226,7 +226,7 @@
         </nav>
       </div>
       <div class="container-fluid page-body-wrapper">
-        <div class="main-panel" >
+        <div class="main-panel" style = "background:#ccf8ca;">
       <!-- Main Content -->
           @yield('content')
           {{-- <footer class="footer">
