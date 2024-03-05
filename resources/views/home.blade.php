@@ -53,6 +53,7 @@
                     <th>Student</th>
                     <th>Time In</th>
                     <th>Time Out</th>
+                    <th>Course</th>
                   </tr>  
                 </thead>
                 <tbody>
@@ -81,6 +82,8 @@
                   <td>{{$student->name}}</td>
                   <td>{{$time_in}}</td>
                   <td>{{$time_out}}</td>
+                  <td>{{$student->course}}</td>
+
                 </tr>
                   @endforeach
                 </tbody>
@@ -100,6 +103,7 @@
                     <th>Name</th>
                     <th>Time In</th>
                     <th>Time Out</th>
+                    <td>Position</td>
                   </tr>  
                 </thead>
                 <tbody>
@@ -128,6 +132,7 @@
                     <td>{{$teacher->name}}</td>
                     <td>{{$time_in}}</td>
                     <td>{{$time_out}}</td>
+                    <td>{{$teacher->position}}</td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -154,8 +159,8 @@
               
             </div>
             <div class='col-md-6'> 
-                <label >Staff ID</label>
-                <input name='student_id' value='{{auth()->user()->teacher->staff_id}}' class='form-control mb-2 mr-sm-2' type='text' readonly>
+                <label >Faculty ID</label>
+                <input name='student_id' value='{{auth()->user()->teacher->facultystaff_id}}' class='form-control mb-2 mr-sm-2' type='text' readonly>
                 <label >Position</label>
                 <input name='course' class='form-control mb-2 mr-sm-2' value='{{auth()->user()->teacher->position}}' type='text' readonly>
                 <label >Email</label>

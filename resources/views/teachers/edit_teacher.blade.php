@@ -24,7 +24,7 @@
                           
                             </div>
                             <div class='col-md-6'> 
-                                <label >Staff ID</label>
+                                <label >Faculty ID</label>
                                 <input name='staff_id' value='{{$teacher->teacher->staff_id}}' class='form-control mb-2 mr-sm-2' type='text' readonly>
                                 <label >Position</label>
                                 <input name='position' value='{{$teacher->teacher->position}}' class='form-control mb-2 mr-sm-2' type='text' required>

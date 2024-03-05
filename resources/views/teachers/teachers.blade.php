@@ -20,7 +20,7 @@
                                   
                                 </th>
                                 <th class="pt-1 ps-0">
-                                    Staff Id
+                                    Faculty Id
                                 </th>
                                 <th class="pt-1 ps-0">
                                     Name
