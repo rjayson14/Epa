@@ -103,7 +103,7 @@
                     <th>Name</th>
                     <th>Time In</th>
                     <th>Time Out</th>
-                    <td>Position</td>
+                    <th>Position</th>
                   </tr>  
                 </thead>
                 <tbody>
