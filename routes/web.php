@@ -17,6 +17,7 @@ Route::get('gates','SettingController@gates');
 Route::get('classrooms','SettingController@classrooms');
 Route::get('test','HomeController@send_message');
 Route::post('check-user','SettingController@checkuser')->name('user');
+Route::get('sync-attendances','SettingController@get_attendances');
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function () {

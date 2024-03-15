@@ -7,7 +7,7 @@ use App\User;
 use App\Teacher;
 use App\Student;
 use App\Guardian;
-
+use Rats\Zkteco\Lib\ZKTeco;
 use Twilio\Rest\Client;
 use App\GateAttendance;
 use Illuminate\Http\Request;
@@ -148,11 +148,17 @@ class SettingController extends Controller
             'gates' => $gates,
         ));
     }
-    public function classrooms()
+    public function classrooms()    
     {
         $classrooms = Room::get();
         return view('classrooms',array(
             'classrooms' => $classrooms,
         ));
+    }
+    public function get_attendances()   
+    {
+        $zk = new ZKTeco("192.168.1.201");
+        dd($zk->connect());
+
     }
 }
