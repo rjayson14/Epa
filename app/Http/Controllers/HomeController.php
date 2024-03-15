@@ -41,14 +41,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $time_in = User::whereHas('attendances_time_in', function ($query) { $query->where('date', date('Y-m-d')); })->get();
+        $date = $request->date;
+        if($date == null)
+        {
+            $date = date("Y-m-d");
+        }
+        $time_in = User::whereHas('attendances_time_in', function ($query) use ($date) { $query->where('date',$date); })->get();
         $users = User::orderBy('name','asc')->get();
         return view('home',
         array(
             'users' => $users,
             'time_in' => $time_in,
+            'date' => $date
         )
         );
     }

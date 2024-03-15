@@ -58,7 +58,7 @@ class AttendanceController extends Controller
 
     public function attendanceReport(Request $request,$type,$date)
     {
-        $time_in = User::whereHas('attendances_time_in', function ($query) { $query->where('date', date('Y-m-d')); })->get();
+        $time_in = User::whereHas('attendances_time_in', function ($query) use ($date) { $query->where('date',$date); })->get();
         $users = User::orderBy('name','asc')->get();
         $pdf = PDF::loadView('PrintAttendance',array(
                 'date' => $date,

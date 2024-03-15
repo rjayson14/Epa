@@ -63,7 +63,7 @@
                 </thead>
                 @foreach($users->where('role',$type) as $user)
                   @php
-                  $timein = ($user->attendances_time_in)->where('type','Time In')->where('date',date('Y-m-d'))->first();
+                  $timein = ($user->attendances_time_in)->where('type','Time In')->where('date',$date)->first();
                   if($timein == null)
                   {
                     $time_in = "No Time In";
@@ -72,7 +72,7 @@
                     
                     $time_in = date('h:i A',strtotime($timein->time));
                   }
-                  $timeout = ($user->attendances_time_out)->where('type','Time Out')->where('date',date('Y-m-d'))->first();
+                  $timeout = ($user->attendances_time_out)->where('type','Time Out')->where('date',$date)->first();
                   if($timeout == null)
                   {
                     $time_out = "No Time Out";

@@ -41,12 +41,27 @@
             </div>
           </div>
     </div>
+    <form method='get'  onsubmit='show();'  enctype="multipart/form-data">
+    {{ csrf_field() }}
+        <div class="row">
+            <div class='col-md-3 '>
+                <div class="card-body">
+                  <input class='form-control form-control-sm' type='date' value='{{$date}}' name='date' required>
+                </div>
+            </div>
+            <div class='col-md-3 '>
+                <div class="card-body">
+                  <button type='submit' class='btn btn-warning'>Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
     <div class="row">
       <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <p class="card-title mb-0">Students 
-              <a  href="{{ url('print-attendance/Student/'.date('Y-m-d')) }}" target="_blank"><button type="button" class="btn btn-info btn-icon-text">
+              <a  href="{{ url('print-attendance/Student/'.$date) }}" target="_blank"><button type="button" class="btn btn-info btn-icon-text">
                           Print
                           <i class="ti-printer btn-icon-append"></i>                                                                              
                         </button></a>
@@ -64,7 +79,7 @@
                 <tbody>
                   @foreach($users->where('role','Student') as $student)
                   @php
-                  $timein = ($student->attendances_time_in)->where('type','Time In')->where('date',date('Y-m-d'))->first();
+                  $timein = ($student->attendances_time_in)->where('type','Time In')->where('date',$date)->first();
                   if($timein == null)
                   {
                     $time_in = "No Time In";
@@ -73,7 +88,7 @@
                     
                     $time_in = date('h:i A',strtotime($timein->time));
                   }
-                  $timeout = ($student->attendances_time_out)->where('type','Time Out')->where('date',date('Y-m-d'))->first();
+                  $timeout = ($student->attendances_time_out)->where('type','Time Out')->where('date',$date)->first();
                   if($timeout == null)
                   {
                     $time_out = "No Time Out";
@@ -100,8 +115,8 @@
       <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <p class="card-title mb-0">Teachers
-            <a  href="{{ url('print-attendance/Teacher/'.date('Y-m-d')) }}" target="_blank"><button type="button" class="btn btn-info btn-icon-text">
+            <p class="card-title mb-0">Teachers 
+            <a  href="{{ url('print-attendance/Teacher/'.$date) }}" target="_blank"><button type="button" class="btn btn-info btn-icon-text">
                           Print
                           <i class="ti-printer btn-icon-append"></i>                                                                              
                         </button></a>
