@@ -166,7 +166,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -233,6 +233,7 @@ SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         'View' => Illuminate\Support\Facades\View::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

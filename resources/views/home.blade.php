@@ -45,7 +45,12 @@
       <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <p class="card-title mb-0">Students</p>
+            <p class="card-title mb-0">Students 
+              <a  href="{{ url('print-attendance/Student/'.date('Y-m-d')) }}" target="_blank"><button type="button" class="btn btn-info btn-icon-text">
+                          Print
+                          <i class="ti-printer btn-icon-append"></i>                                                                              
+                        </button></a>
+                      </p>
             <div class="table-responsive">
               <table border="1" class="table table-hover tableExport"   style="width:100%;">
                 <thead>
@@ -82,7 +87,7 @@
                   <td>{{$student->name}}</td>
                   <td>{{$time_in}}</td>
                   <td>{{$time_out}}</td>
-                  <td>{{$student->course}}</td>
+                  <td>{{$student->student->course}}</td>
 
                 </tr>
                   @endforeach
@@ -95,9 +100,15 @@
       <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <p class="card-title mb-0">Teachers</p>
+            <p class="card-title mb-0">Teachers
+            <a  href="{{ url('print-attendance/Teacher/'.date('Y-m-d')) }}" target="_blank"><button type="button" class="btn btn-info btn-icon-text">
+                          Print
+                          <i class="ti-printer btn-icon-append"></i>                                                                              
+                        </button></a>
+
+            </p>
             <div class="table-responsive">
-              <table border="1" class="table table-hover tableExport"   style="width:100px;">
+              <table border="1" class="table table-hover tableExport"   style="width:100%;">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -132,7 +143,7 @@
                     <td>{{$teacher->name}}</td>
                     <td>{{$time_in}}</td>
                     <td>{{$time_out}}</td>
-                    <td>{{$teacher->position}}</td>
+                    <td>{{$teacher->teacher->position}}</td>
                   </tr>
                   @endforeach
                 </tbody>

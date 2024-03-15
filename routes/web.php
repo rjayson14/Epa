@@ -74,6 +74,7 @@ Route::post('edit-subject/{id}','SubjectController@update');
 Route::get('schedules','ScheduleController@index');
 
 
-
+//Print Attendance
+Route::get('print-attendance/{role}/{date}','AttendanceController@attendanceReport');
 
 });

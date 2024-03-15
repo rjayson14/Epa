@@ -5,6 +5,7 @@ use App\Student;
 use App\Teacher;
 use App\GateAttendance;
 use App\User;
+use PDF;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -53,5 +54,19 @@ class AttendanceController extends Controller
                 'date' => $date,
             )
         );
+    }
+
+    public function attendanceReport(Request $request,$type,$date)
+    {
+        $time_in = User::whereHas('attendances_time_in', function ($query) { $query->where('date', date('Y-m-d')); })->get();
+        $users = User::orderBy('name','asc')->get();
+        $pdf = PDF::loadView('PrintAttendance',array(
+                'date' => $date,
+                'users' => $users,
+                'time_in' => $time_in,
+                'type' => $type,
+   
+           ));
+           return $pdf->stream('PrintAttendance.pdf');
     }
 }
