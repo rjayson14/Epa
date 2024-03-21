@@ -20,6 +20,9 @@
                                   
                                 </th>
                                 <th class="pt-1 ps-0">
+                                   Bio Code
+                                </th>
+                                <th class="pt-1 ps-0">
                                     Faculty Id
                                 </th>
                                 <th class="pt-1 ps-0">
@@ -47,6 +50,9 @@
                                 <tr>
                                     <td class="pt-1 ps-0">
                                         <img  src="{{URL::asset($teacher->avatar)}}"  onerror="this.src='{{URL::asset('/images/no-image.JPEG')}}';"  alt="profile">
+                                    </td>
+                                    <td class="pt-1 ps-0">
+                                        {{$teacher->teacher->id}}
                                     </td>
                                     <td class="pt-1 ps-0">
                                         {{$teacher->teacher->staff_id}}

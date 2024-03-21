@@ -6,7 +6,7 @@ QR Code
 @section('content')
 <!-- qr code  -->
 <div class='row pt-5'>
-  <div class='col-md-12 pt-5'>
+  <div class='col-md-12 pt-5' style="background:white">
 <div class="text-center pt-5">
 @if($id)
 

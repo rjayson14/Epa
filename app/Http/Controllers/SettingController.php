@@ -11,6 +11,7 @@ use Rats\Zkteco\Lib\ZKTeco;
 use Twilio\Rest\Client;
 use App\GateAttendance;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SettingController extends Controller
 {
@@ -157,8 +158,72 @@ class SettingController extends Controller
     }
     public function get_attendances()   
     {
-        $zk = new ZKTeco("192.168.1.201");
-        dd($zk->connect());
+        $zk = new ZKTeco("192.168.0.201");
 
+        $zk->connect();
+        // $zk->enableDevice();   
+        $attendances = $zk->getAttendance();
+      
+        $last_attendance = GateAttendance::orderBy('time','desc')->where('gate_id',null)->first();
+        $compare = null;
+        if($last_attendance != null)
+        {
+            $last_attendance_tieout = GateAttendance::orderBy('time_out','desc')->where('gate_id',null)->first();
+            $compare = $last_attendance->time;
+            if($last_attendance_tieout > $last_attendance)
+            {
+                $compare = $last_attendance_tieout->time_out; 
+            }
+        }
+       
+        if($compare != null)
+        {
+            $attendances = collect($attendances)->where('timestamp','>',$compare)->take(100);
+        }
+        foreach($attendances as $attendance)
+        {
+            // $user = User::where('id',$attendance['id'])->first();
+            // //    dd($user->role);
+            //     if ($user) {
+            //         if($user->role == "Teacher")
+            //         {
+            //             $teacher = Teacher::where('user_id',$user->id)->first();
+            //             $course = $teacher->position;
+            //         }
+            //         else
+            //         {
+            //             $student = Student::where('user_id',$user->id)->first();
+            //             $course = $student->course;
+    
+            //             $guardian = Guardian::where('user_id',$user->id)->first();
+                        
+            //             $str_to_replace = '+63';
+    
+            //             $output_str = $str_to_replace . substr($guardian->contact_number, 1);
+            //             $body = "\nHello from EP Access!  \n ".$user->name." successfully scanned the QR code at the Face Recognition Device\n Time : ".date('M d, Y h:i A');
+            //             if($guardian)
+            //             {
+            //                 $this->sendMessage($body, $output_str);
+                          
+            //             }
+            //         }
+            //     }
+                $insert = new GateAttendance;
+                if($attendance['type'] == 0)
+                {
+                    
+                    $insert->type = "Time In";
+                }
+                else
+                {
+                    $insert->type = "Time Out"; 
+                }
+                $insert->time = $attendance['timestamp'];
+                $insert->date = date('Y-m-d',strtotime($attendance['timestamp']));
+                $insert->user_id =  $attendance['id'];
+                $insert->save();
+        }
+        Alert::success('Successfully Sync Biometrics')->persistent('Dismiss');
+        return back();
     }
 }

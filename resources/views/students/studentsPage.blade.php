@@ -20,6 +20,9 @@
                                     
                                 </th>
                                 <th class="pt-1 ps-0">
+                                    Bio Code
+                                </th>
+                                <th class="pt-1 ps-0">
                                     Name
                                 </th>
                                 <th class="pt-1 ps-0">
@@ -44,6 +47,9 @@
                                 <tr>
                                     <td class="pt-1 ps-0">
                                         <img  src="{{URL::asset($student->avatar)}}"  onerror="this.src='{{URL::asset('/images/no-image.JPEG')}}';"  alt="profile">
+                                    </td>
+                                    <td class="pt-1 ps-0">
+                                        {{$student->id}}
                                     </td>
                                     <td class="pt-1 ps-0">
                                         {{$student->name}}

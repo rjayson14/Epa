@@ -49,9 +49,14 @@
                   <input class='form-control form-control-sm' type='date' value='{{$date}}' name='date' required>
                 </div>
             </div>
-            <div class='col-md-3 '>
+            <div class='col-md-1 '>
                 <div class="card-body">
                   <button type='submit' class='btn btn-warning'>Search</button>
+                </div>
+            </div>
+            <div class='col-md-1 '>
+                <div class="card-body"> 
+                  <a  href="{{url('/sync-attendances')}}" onclick='show();'><button type='button' class='btn btn-success'>Sync Biometrics</button></a>
                 </div>
             </div>
         </div>
