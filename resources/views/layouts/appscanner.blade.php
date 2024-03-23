@@ -36,8 +36,8 @@
 
             html, body {
                 
-                
-                color: #7a49fc !important;
+
+                color: Green !important;
                 font-weight: 350;
                 height: 100vh;
                 margin: 0;
@@ -95,7 +95,7 @@
 </head>
 <body >
 	{{-- <nav class="navbar navbar-default navbar-fixed-top">
-	    <div class="container"style="background-color:red">
+	    <div class="container">
 	        <!-- Brand and toggle get grouped for better mobile display -->
 	        <div class="navbar-header">
 	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -116,7 +116,7 @@
 	    </div><!-- /.container-fluid -->
 	</nav> --}}
 
-	<div class="container">
+	<div class="container-sm" style='background-color:#efffef !important;'>
     
             
        
