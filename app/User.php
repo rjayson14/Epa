@@ -57,4 +57,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(GateAttendance::class)->orderBy('time','desc');
     }
+
+    public function attendances_time_in_room()
+    {
+        return $this->hasMany(ClassroomAttendance::class)->orderBy('time','asc');
+    }
+    public function attendances_time_out_room()
+    {
+        return $this->hasMany(ClassroomAttendance::class)->orderBy('time','desc');
+    }
 }

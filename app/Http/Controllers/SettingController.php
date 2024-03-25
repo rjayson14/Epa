@@ -10,6 +10,7 @@ use App\Guardian;
 use Rats\Zkteco\Lib\ZKTeco;
 use Twilio\Rest\Client;
 use App\GateAttendance;
+use App\ClassroomAttendance;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -163,12 +164,12 @@ class SettingController extends Controller
         $zk->connect();
         // $zk->enableDevice();   
         $attendances = $zk->getAttendance();
-      
-        $last_attendance = GateAttendance::orderBy('time','desc')->where('gate_id',null)->first();
+        $classroom = Room::where('ip_address','192.168.0.201')->first();
+        $last_attendance = ClassroomAttendance::orderBy('time','desc')->first();
         $compare = null;
         if($last_attendance != null)
         {
-            $last_attendance_tieout = GateAttendance::orderBy('time_out','desc')->where('gate_id',null)->first();
+            $last_attendance_tieout = ClassroomAttendance::orderBy('time_out','desc')->first();
             $compare = $last_attendance->time;
             if($last_attendance_tieout > $last_attendance)
             {
@@ -208,7 +209,7 @@ class SettingController extends Controller
             //             }
             //         }
             //     }
-                $insert = new GateAttendance;
+                $insert = new ClassroomAttendance;
                 if($attendance['type'] == 0)
                 {
                     
@@ -219,6 +220,7 @@ class SettingController extends Controller
                     $insert->type = "Time Out"; 
                 }
                 $insert->time = $attendance['timestamp'];
+                $insert->classroom_id = $classroom->id;
                 $insert->date = date('Y-m-d',strtotime($attendance['timestamp']));
                 $insert->user_id =  $attendance['id'];
                 $insert->save();

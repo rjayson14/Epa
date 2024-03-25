@@ -9,7 +9,9 @@
             <div class="card-body">
               <h4 class="card-title">Attendances</h4>
               <p class="card-description">
-                <form method='get' onsubmit='show();'  enctype="multipart/form-data">
+                
+              <form method='get' onsubmit='show();'  enctype="multipart/form-data">
+              {{ csrf_field() }}
                 <div class=row>
                   <div class='col-md-4'>
                       <div class="form-group">
@@ -24,7 +26,7 @@
                   
                   <div class='col-md-2'>
                     <div class="form-group">
-                      <input type="date" value='{{$date}}' class="form-control" name="date" max='{{date('Y-m-d')}}' required/>
+                      <input class='form-control form-control-sm' type='date' value='{{$date}}' name='date' required>
                     </div>
                   </div>
                   <div class='col-md-3'>
@@ -43,27 +45,48 @@
                         <h3><strong>Gate</strong></h3>
                         <table border="1" class="table table-hover tableExport"   style="width:100%;">
       
-                            <thead>
+                        <thead>
                                 <tr>
-                                    <th>User</th>
-                                    <th>Gate</th>
-                                    <th>Time</th>
-                                    <th>Type</th>
+                                    <th>Student</th>
+                                    <th>Time In</th>
+                                    <th>Time Out</th>
                                     <th>Course</th>
-
+                                    
       
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($attendances->where('gate_id','!=',null) as $attendance)
-                                <tr>
-                                    <td>{{$attendance->user->name}}</td>
-                                    <td>{{$attendance->gate->name}}</td>
-                                    <td>{{date('h:i a',strtotime($attendance->time))}}</td>
-                                    <td>{{$attendance->type}}</td>
-                                    <td>{{$attendance->Course}}</td>
-                                </tr>
-                                @endforeach
+                            @foreach($users->where('role','Student') as $student)
+                            @php
+                            $timein = ($student->attendances_time_in)->where('type','Time In')->where('date',$date)->first();
+                            if($timein == null)
+                             {
+                               $time_in = "No Time In";
+                             }
+                             else {
+                    
+                               $time_in = date('h:i A',strtotime($timein->time));
+                              }
+                              $timeout = ($student->attendances_time_out)->where('type','Time Out')->where('date',$date)->first();
+                              if($timeout == null)
+                               {
+                                 $time_out = "No Time Out";
+                               }
+                              else {
+                    
+                                $time_out =  date('h:i A',strtotime($timeout->time));
+                               }
+                               @endphp
+                  <tr>
+                  
+                  <td>{{$student->name}}</td>
+                  <td>{{$time_in}}</td>
+                  <td>{{$time_out}}</td>
+                  <td>{{$student->student->course}}</td>
+                  
+
+                </tr>
+                  @endforeach
                             </tbody>
       
                         </table>
@@ -77,15 +100,47 @@
       
                             <thead>
                                 <tr>
-                                    <th>User</th>
-                                    <th>Classroom</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
+                                    <th>Student</th>
+                                    <th>Time In</th>
+                                    <th>Time Out</th>
                                     <th>Course</th>
+                                    
       
                                 </tr>
                             </thead>
-      
+                            <tbody>
+                            @foreach($users->where('role','Student') as $student)
+                            @php
+                            $timein = ($student->attendances_time_in_room)->where('type','Time In')->where('date',$date)->first();
+                            if($timein == null)
+                             {
+                               $time_in = "No Time In";
+                             }
+                             else {
+                    
+                               $time_in = date('h:i A',strtotime($timein->time));
+                              }
+                              $timeout = ($student->attendances_time_out_room)->where('type','Time Out')->where('date',$date)->first();
+                              if($timeout == null)
+                               {
+                                 $time_out = "No Time Out";
+                               }
+                              else {
+                    
+                                $time_out =  date('h:i A',strtotime($timeout->time));
+                               }
+                               @endphp
+                  <tr>
+                  
+                  <td>{{$student->name}}</td>
+                  <td>{{$time_in}}</td>
+                  <td>{{$time_out}}</td>
+                  <td>{{$student->student->course}}</td>
+                  
+
+                </tr>
+                  @endforeach
+                            </tbody>
                         </table>
                       </div>
                     </div>
