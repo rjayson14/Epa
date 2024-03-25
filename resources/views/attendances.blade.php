@@ -13,7 +13,7 @@
               <form method='get' onsubmit='show();'  enctype="multipart/form-data">
               {{ csrf_field() }}
                 <div class=row>
-                  <div class='col-md-4'>
+                  <!-- <div class='col-md-4'>
                       <div class="form-group">
                         <select data-placeholder="Filter" class="form-control form-control-sm required js-example-basic-single" style='width:100%;' name='user_name'>
                             <option value="">-- Filter --</option>
@@ -22,7 +22,7 @@
                             @endforeach
                         </select>
                       </div> 
-                  </div>
+                  </div> -->
                   
                   <div class='col-md-2'>
                     <div class="form-group">
