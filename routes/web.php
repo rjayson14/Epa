@@ -53,6 +53,7 @@ Route::get('attendances/{type}','AttendanceController@index');
 
 
 Route::get('qr-code','SettingController@qrcode')->name('qr-code');
+Route::get('download-qr','SettingController@downloadQR')->name('qr-code');
 
 
 

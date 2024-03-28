@@ -143,7 +143,7 @@ Gate Scanner
 @section('content')
 <nav class="navbar navbar-light bg-light text-left " style='display:block  !important;'>
     <a class="navbar-brand" href="{{url('/gates')}}">Gates</a>
-    <a class="navbar-brand" href="{{url('/classrooms')}}">Classrooms</a>
+    <!-- <a class="navbar-brand" href="{{url('/classrooms')}}">Classrooms</a> -->
     
   </nav>
     <div class='row pt-3'>

@@ -73,9 +73,9 @@
                                 <th class="pt-1 ps-0">
                                     Name
                                 </th>
-                                <th class="pt-1 ps-0">
+                                <!-- <th class="pt-1 ps-0">
                                     Scanner
-                                </th>
+                                </th> -->
                                 <th class="pt-1">
                                     Action
                                 </th>
@@ -87,9 +87,9 @@
                                 <td class="pt-1 ps-0">
                                     {{$room->name}}
                                 </td>
-                                <td class="pt-1 ps-0">
+                                <!-- <td class="pt-1 ps-0">
                                     <a href='{{url('scanner/room/'.$room->id)}}' target='_blank'><i class="fa fa-qrcode"></i></a>
-                                </td>
+                                </td> -->
                                 <td class="pt-1">
                                     <button type="button" data-toggle="modal" data-target="#edit_room{{$room->id}}"  class="btn btn-sm btn-outline-warning btn-icon-text">
                                         <i class="ti-pencil btn-icon-prepend"></i>                                                    

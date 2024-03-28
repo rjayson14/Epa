@@ -65,6 +65,30 @@ class SettingController extends Controller
             ));
         }
     }
+    public function downloadQR(Request $request)
+    {
+
+        $user = User::where('password',$request->id)->first();
+        if($user == null)
+        {
+            
+        }
+        else
+        {
+            // dd($request->all());
+            return response()->streamDownload(
+                function () {
+                    echo QrCode::size(200)
+                        ->format('png')
+                        ->generate($user->password);
+                },
+                'qr-code.png',
+                [
+                    'Content-Type' => 'image/png',
+                ]
+            );
+        }
+    }
     private function sendMessage($message, $recipients)
     {
         $account_sid = config('app.twilio_sid');
