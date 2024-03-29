@@ -103,7 +103,7 @@
                 
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                    <span class='text-dark'>{{auth()->user()->name}}</span>
+                    <span class='text-dark'>{{auth()->user()->name}} - {{auth()->user()->id}}</span>
                     <img src="{{auth()->user()->avatar}}"  onerror="this.src='{{URL::asset('/images/no_image.png')}}';" alt="profile"/>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">

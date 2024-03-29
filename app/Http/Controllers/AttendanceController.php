@@ -36,17 +36,21 @@ class AttendanceController extends Controller
         $user_name = auth()->user()->id;
         $date = $request->date;
         $attendances = GateAttendance::where('date',date('Y-m-d'))->where('user_id',$user_name)->get();
+        $classroom_attendances = ClassroomAttendance::where('date',date('Y-m-d'))->where('user_id',$user_name)->get();
         if($date)
         {
             $attendances = GateAttendance::where('date',$date)->orderBy('time','desc')->get(); 
+            $classroom_attendances = ClassroomAttendance::where('date',$date)->orderBy('time','desc')->get(); 
             if($user_name)
             {
                 $attendances = GateAttendance::where('date',$date)->where('user_id',$user_name)->orderBy('time','desc')->get(); 
+                $classroom_attendances = ClassroomAttendance::where('date',$date)->where('user_id',$user_name)->orderBy('time','desc')->get(); 
             }
         }
         return view('my_attendance',
             array(
                 'attendances' => $attendances,
+                'classroom_attendances' => $classroom_attendances,
                 'date' => $date,
             )
         );

@@ -68,18 +68,18 @@
                                     <th>Classroom</th>
                                     <th>Date</th>
                                     <th>Time</th>
-                                    <th>Course</th>
+                                    <th>Type</th>
       
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($attendances->where('gate_id',null) as $attendance)
+                                @foreach($classroom_attendances as $attendance_add)
                                 <tr>
-                                    <td>{{$attendance->user->name}}</td>
-                                    <td>{{$attendance->classroom->name}}</td>
-                                    <td>{{date('h:i a',strtotime($attendance->time))}}</td>
-                                    <td>{{$attendance->type}}</td>
-                                    <td>{{$attendance->Course}}</td>
+                                    <td>{{$attendance_add->user->name}}</td>
+                                    <td>{{$attendance_add->classroom->name}}</td>
+                                    <td>{{date('Y-m-d',strtotime($attendance_add->time))}}</td>
+                                    <td>{{date('h:i A',strtotime($attendance_add->time))}}</td>
+                                    <td>{{$attendance_add->type}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
