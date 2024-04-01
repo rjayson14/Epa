@@ -7,5 +7,6 @@ use OwenIt\Auditing\Contracts\Auditable;
 class Student extends Model implements Auditable
 {
     //
+    
     use \OwenIt\Auditing\Auditable;
 }

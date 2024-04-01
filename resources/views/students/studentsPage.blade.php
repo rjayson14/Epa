@@ -75,6 +75,12 @@
                                             <i class="ti-image btn-icon-prepend"></i>                                                    
                                             Avatar
                                         </button>
+                                        <a href='{{url('remove-user/'.$student->id)}}'
+                                            <button type="button"  class="btn btn-sm btn-outline-danger btn-icon-text">
+                                                <i class="ti-trash btn-icon-prepend"></i>                                                    
+                                                <!-- Delete -->
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
                         

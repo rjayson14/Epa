@@ -21,4 +21,11 @@ class UserController extends Controller
         Alert::success('Successfully Change Password')->persistent('Dismiss');
         return back();
     }
+    public function removeUser($id)
+    {
+        $id = User::find($id);
+        $id->delete();
+        Alert::success('Successfully Deleted')->persistent('Dismiss');
+        return back();
+    }
 }

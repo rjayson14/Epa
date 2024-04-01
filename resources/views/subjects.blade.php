@@ -60,7 +60,7 @@
         <div class="col-md-6 grid-margin grid-margin-md-0 stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Schedules <button data-toggle="modal" data-target="#new_room" type="button" class="btn btn-outline-success btn-sm btn-icon-text"   >
+                    <h4 class="card-title">Schedules <button data-toggle="modal" data-target="#new_schedule" type="button" class="btn btn-outline-success btn-sm btn-icon-text"   >
                         <i class="ti-plus btn-icon-prepend"></i>                                                    
                         New
                       </button>
@@ -86,7 +86,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                           
+                            @foreach($schedules as $schedule)
+                            <tr>
+                                <td class="pt-1 ps-0">
+                                    {{$schedule->date}} - {{$schedule->time_from}} to {{$schedule->time_to}}
+                                </td>
+                                <td class="pt-1 ps-0">
+                                    {{$schedule->room->name}}
+                                </td>
+                                <td class="pt-1 ps-0">
+                                    {{$schedule->subject->name}}
+                                </td>
+                                <td class="pt-1">
+                                    <button type="button" data-toggle="modal" data-target="#edit_schedule{{$schedule->id}}"  class="btn btn-sm btn-outline-warning btn-icon-text">
+                                        <i class="ti-pencil btn-icon-prepend"></i>                                                    
+                                        Edit
+                                    </button>
+                                </td>
+                            </tr>
+                            @include('edit_schedule')
+                            @endforeach
                         </tbody>
                         </table>
                     </div>
@@ -96,4 +115,5 @@
     </div>
 </div>
 @include('new_subject')
+@include('new_schedule')
 @endsection

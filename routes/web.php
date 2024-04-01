@@ -30,12 +30,14 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('teachers','TeacherController@index')->name('teachers');
 Route::post('new-teacher','TeacherController@store')->name('teachers');
 Route::post('edit-teacher/{id}','TeacherController@update')->name('teachers');
+Route::get('/remove-user/{id}','UserController@removeUser');
 
 
 Route::get('students','StudentController@index')->name('students');
 Route::post('new-student','StudentController@store')->name('students');
 Route::post('edit-student/{id}','StudentController@update')->name('students');
 Route::post('upload-avatar/{id}','StudentController@upload_image')->name('student');
+Route::get('delete-student/{id}','StudentController@remove')->name('student');
 
 Route::get('settings','SettingController@index')->name('settings');
 
@@ -77,5 +79,11 @@ Route::get('schedules','ScheduleController@index');
 
 //Print Attendance
 Route::get('print-attendance/{role}/{date}','AttendanceController@attendanceReport');
+
+
+//Schedule
+Route::post('new-schedule','ScheduleController@create');
+Route::post('edit-schedule/{id}','ScheduleController@update');
+
 
 });

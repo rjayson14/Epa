@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Subject;
-
+use App\Room;
+use App\Schedule;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,12 @@ class SubjectController extends Controller
     public function index(Request $request)
     {
         $subjects= Subject::where('user_id',auth()->user()->id)->get();
+        $schedules = Schedule::where('user_id',auth()->user()->id)->get();
+        $rooms = Room::get();
         return view('subjects',array(
-            'subjects' => $subjects
+            'subjects' => $subjects,
+            'rooms' => $rooms,
+            'schedules' => $schedules,
         ));
     }
     public function store(Request $request)
