@@ -191,7 +191,7 @@
             </div>
             <div class='col-md-6'> 
                 <label >Faculty ID</label>
-                <input name='student_id' value='{{auth()->user()->teacher->facultystaff_id}}' class='form-control mb-2 mr-sm-2' type='text' readonly>
+                <input name='staff_id' value='{{auth()->user()->teacher->staff_id}}' class='form-control mb-2 mr-sm-2' type='text' readonly>
                 <label >Position</label>
                 <input name='course' class='form-control mb-2 mr-sm-2' value='{{auth()->user()->teacher->position}}' type='text' readonly>
                 <label >Email</label>

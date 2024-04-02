@@ -183,12 +183,12 @@ class SettingController extends Controller
     }
     public function get_attendances()   
     {
-        $zk = new ZKTeco("192.168.1.201");
+        $zk = new ZKTeco("192.168.31.201");
 
         $zk->connect();
         // $zk->enableDevice();   
         $attendances = $zk->getAttendance();
-        $classroom = Room::where('ip_address','192.168.1.201')->first();
+        $classroom = Room::where('ip_address','192.168.31.201')->first();
         $last_attendance = ClassroomAttendance::orderBy('time','desc')->first();
         $compare = null;
         if($last_attendance != null)
